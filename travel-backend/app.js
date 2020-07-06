@@ -1,12 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send({ msg: 'hello from react' });
-});
+// routes
+
+const authenticateRoutes = require('./routes/authenticate');
+
+// app.get('/', (req, res) => {
+//   res.send({ msg: 'hello from react' });
+// });
+
+// middlewares
+
+app.use('/api', authenticateRoutes);
 
 //  connection to db
 
