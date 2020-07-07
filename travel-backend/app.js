@@ -1,5 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const expressValidator = require('express-validator');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const app = express();
 require('dotenv').config;
@@ -12,12 +16,7 @@ const authenticateRoutes = require('./routes/authenticate');
 //   res.send({ msg: 'hello from react' });
 // });
 
-// middlewares
-
-app.use('/api', authenticateRoutes);
-
 //  connection to db
-
 mongoose
   .connect(process.env.DATABASE, { useNewUrlParser: true })
 
@@ -26,6 +25,15 @@ mongoose
 mongoose.connection.on('error', (err) => {
   console.log(`DB connection error: ${err.message}`);
 });
+
+// middlewares
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(expressValidator());
+
+// Middleware Routes
+app.use('/api', authenticateRoutes);
 
 const port = process.env.PORT || 8000;
 
