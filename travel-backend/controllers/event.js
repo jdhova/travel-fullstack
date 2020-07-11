@@ -1,5 +1,5 @@
 const Event = require('../models/event');
-// const Product = require('../models/product');
+const Trip = require('../models/trip');
 // check line 60
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
@@ -58,7 +58,7 @@ exports.update = (req, res) => {
 // need to check the Trips and see relationship
 exports.remove = (req, res) => {
   const event = req.event;
-  Product.find({ event }).exec((err, data) => {
+  Trip.find({ event }).exec((err, data) => {
     if (data.length >= 1) {
       return res.status(400).json({
         message: `Sorry. You cant delete ${event.name}. It has ${data.length} associated products.`,

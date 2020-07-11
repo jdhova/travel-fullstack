@@ -6,7 +6,7 @@ const eventSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: true,
-      maxlength: 32,
+      maxlength: 52,
       unique: true,
     },
   },
