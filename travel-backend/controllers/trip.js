@@ -6,70 +6,70 @@ const { errorHandler } = require('../helpers/dbErrorHandler');
 
 // why do we populate catrgory??
 
-// exports.tripById = (req, res, next, id) => {
-//   Trip.findById(id)
-//     .populate('event')
-//     .exec((err, trip) => {
-//       if (err || !trip) {
-//         return res.status(400).json({
-//           error: 'trip not found',
-//         });
-//       }
-//       req.trip = trip;
-//       next();
-//     });
-// };
+exports.tripById = (req, res, next, id) => {
+  Trip.findById(id)
+    .populate('event')
+    .exec((err, trip) => {
+      if (err || !trip) {
+        return res.status(400).json({
+          error: 'trip not found',
+        });
+      }
+      req.trip = trip;
+      next();
+    });
+};
 
-// exports.read = (req, res) => {
-//   req.trip.photo = undefined;
-//   return res.json(req.trip);
-// };
+exports.read = (req, res) => {
+  req.trip.photo = undefined;
+  return res.json(req.trip);
+};
 
-// exports.create = (req, res) => {
-//   let form = new formidable.IncomingForm();
-//   form.keepExtensions = true;
-//   form.parse(req, (err, fields, files) => {
-//     if (err) {
-//       return res.status(400).json({
-//         error: 'Image could not be uploaded',
-//       });
-//     }
-//     // check for all fields
-//     const { name, description, price, event, quantity, shipping } = fields;
+exports.create = (req, res) => {
+  let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      return res.status(400).json({
+        error: 'Image could not be uploaded',
+      });
+    }
+    // check for all fields
+    const { name, description, price, event, quantity, shipping } = fields;
 
-//     if (!name || !description || !price || !event || !quantity || !shipping) {
-//       return res.status(400).json({
-//         error: 'All fields are required',
-//       });
-//     }
+    if (!name || !description || !price || !event || !quantity || !shipping) {
+      return res.status(400).json({
+        error: 'All fields are required',
+      });
+    }
 
-//     let trip = new Trip(fields);
+    let trip = new Trip(fields);
 
-//     // 1kb = 1000
-//     // 1mb = 1000000
+    // 1kb = 1000
+    // 1mb = 1000000
 
-//     if (files.photo) {
-//       // console.log("FILES PHOTO: ", files.photo);
-//       if (files.photo.size > 1000000) {
-//         return res.status(400).json({
-//           error: 'Image should be less than 1mb in size',
-//         });
-//       }
-//       trip.photo.data = fs.readFileSync(files.photo.path);
-//       trip.photo.contentType = files.photo.type;
-//     }
+    if (files.photo) {
+      // console.log("FILES PHOTO: ", files.photo);
+      if (files.photo.size > 1000000) {
+        return res.status(400).json({
+          error: 'Image should be less than 1mb in size',
+        });
+      }
+      trip.photo.data = fs.readFileSync(files.photo.path);
+      trip.photo.contentType = files.photo.type;
+    }
 
-//     trip.save((err, result) => {
-//       if (err) {
-//         console.log('Trip CREATE ERROR ', err);
-//         return res.status(400).json({
-//           error: errorHandler(err),
-//         });
-//       }
-//       res.json(result);
-//     });
-//   });
-// };
+    trip.save((err, result) => {
+      if (err) {
+        console.log('Trip CREATE ERROR ', err);
+        return res.status(400).json({
+          error: errorHandler(err),
+        });
+      }
+      res.json(result);
+    });
+  });
+};
 
 exports.remove = (req, res) => {
   let trip = req.trip;
@@ -85,44 +85,44 @@ exports.remove = (req, res) => {
   });
 };
 
-// exports.update = (req, res) => {
-//   let form = new formidable.IncomingForm();
-//   form.keepExtensions = true;
-//   form.parse(req, (err, fields, files) => {
-//     if (err) {
-//       return res.status(400).json({
-//         error: 'Image could not be uploaded',
-//       });
-//     }
+exports.update = (req, res) => {
+  let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      return res.status(400).json({
+        error: 'Image could not be uploaded',
+      });
+    }
 
-//     // function of the lodash ??
-//     let trip = req.trip;
-//     trip = _.extend(trip, fields);
+    // function of the lodash ??
+    let trip = req.trip;
+    trip = _.extend(trip, fields);
 
-//     // 1kb = 1000
-//     // 1mb = 1000000
+    // 1kb = 1000
+    // 1mb = 1000000
 
-//     if (files.photo) {
-//       // console.log("FILES PHOTO: ", files.photo);
-//       if (files.photo.size > 1000000) {
-//         return res.status(400).json({
-//           error: 'Image should be less than 1mb in size',
-//         });
-//       }
-//       trip.photo.data = fs.readFileSync(files.photo.path);
-//       trip.photo.contentType = files.photo.type;
-//     }
+    if (files.photo) {
+      // console.log("FILES PHOTO: ", files.photo);
+      if (files.photo.size > 1000000) {
+        return res.status(400).json({
+          error: 'Image should be less than 1mb in size',
+        });
+      }
+      trip.photo.data = fs.readFileSync(files.photo.path);
+      trip.photo.contentType = files.photo.type;
+    }
 
-//     trip.save((err, result) => {
-//       if (err) {
-//         return res.status(400).json({
-//           error: errorHandler(err),
-//         });
-//       }
-//       res.json(result);
-//     });
-//   });
-// };
+    trip.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: errorHandler(err),
+        });
+      }
+      res.json(result);
+    });
+  });
+};
 
 // /**
 //  * sell / arrival
