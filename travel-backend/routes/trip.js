@@ -31,7 +31,7 @@ router.put('/trip/:tripId/:userId', requireSignin, isAuth, isAdmin, update);
 // router.get('/trips/related/:tripId', listRelated);
 // router.get('/trips/events', listEvents);
 // router.post('/trips/by/search', listBySearch);
-// router.get('/trip/photo/:tripId', photo);
+//router.get('/trip/photo/:tripId', photo);
 
 router.param('userId', userById);
 router.param('tripId', tripById);
