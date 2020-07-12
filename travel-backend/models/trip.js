@@ -20,7 +20,7 @@ const tripSchema = new mongoose.Schema(
       required: true,
       maxlength: 32,
     },
-    category: {
+    event: {
       type: ObjectId,
       ref: 'Event',
       required: true,

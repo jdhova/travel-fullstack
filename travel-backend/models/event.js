@@ -9,6 +9,15 @@ const eventSchema = new mongoose.Schema(
       maxlength: 52,
       unique: true,
     },
+    description: {
+      type: String,
+      required: true,
+      maxlength: 2000,
+    },
+    photo: {
+      data: Buffer,
+      contentType: String,
+    },
   },
   { timestamps: true }
 );
