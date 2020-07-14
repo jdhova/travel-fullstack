@@ -1,3 +1,31 @@
 /* .App {
   text-align: center;
 } */
+.main-nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding-right: 40px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+  font-weight: 300;
+}
+
+ul {
+  list-style-type: none;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.othernav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding-right: 40px;
+}
