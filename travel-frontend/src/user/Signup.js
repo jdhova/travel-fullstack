@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { signup } from '../auth';
 import '../App.css';
 
 const Signup = () => {
@@ -16,6 +17,43 @@ const Signup = () => {
     setValues({ ...values, error: false, [name]: e.target.value });
   };
 
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   setValues({ ...values, error: false });
+  //   signup({ name, email, password }).then((data) => {
+  //     if (data.error) {
+  //       setValues({ ...values, error: data.error, success: false });
+  //     } else {
+  //       setValues({
+  //         name: '',
+  //         email: '',
+  //         password: '',
+  //         error: '',
+  //         success: true,
+  //       });
+  //     }
+  //   });
+  // };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setValues({ ...values, error: false });
+    signup({ name, email, password, error }).then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: data.error, success: false });
+      } else {
+        setValues({
+          ...values,
+          name: '',
+          email: '',
+          password: '',
+          error: '',
+          success: true,
+        });
+      }
+    });
+  };
+
   const signUpForm = () => (
     <form>
       <div className='form-group'>
@@ -24,6 +62,7 @@ const Signup = () => {
           onChange={onChange('name')}
           type='name'
           className='form-control'
+          value={name}
         />
       </div>
 
@@ -33,6 +72,7 @@ const Signup = () => {
           onChange={onChange('email')}
           type='email'
           className='form-control'
+          value={email}
         />
       </div>
 
@@ -42,9 +82,12 @@ const Signup = () => {
           onChange={onChange('password')}
           type='password'
           className='form-control'
+          value={password}
         />
       </div>
-      <button className='btn btn-primary'>Submit</button>
+      <button onClick={onSubmit} className='btn btn-primary'>
+        Submit
+      </button>
     </form>
   );
 
@@ -54,6 +97,7 @@ const Signup = () => {
         <h2>Signup </h2>
       </div>
       <div className='signup2'>{signUpForm()}</div>
+      {JSON.stringify(values)}
     </div>
   );
 };
