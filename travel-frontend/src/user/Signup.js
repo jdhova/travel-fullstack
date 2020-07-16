@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { signup } from '../auth';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import { API } from '../config';
 
 const Signup = () => {
   const [values, setValues] = useState({
@@ -19,36 +18,13 @@ const Signup = () => {
     setValues({ ...values, error: false, [name]: e.target.value });
   };
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   setValues({ ...values, error: false });
-  //   signup({ name, email, password }).then((data) => {
-  //     if (data.error) {
-  //       setValues({ ...values, error: data.error, success: false });
-  //     } else {
-  //       setValues({
-  //         name: '',
-  //         email: '',
-  //         password: '',
-  //         error: '',
-  //         success: true,
-  //       });
-  //     }
-  //   });
-  // };
-  const signupnow = (name, email, password, error) => {
-    console.log(name, email, password, error);
-  };
-
   const onSubmit = (event) => {
     event.preventDefault();
 
     setValues({ ...values, error: false });
-    signupnow(name, email, password, error);
-    // console.log('values here', values);
 
     signup({ name, email, password }).then((data) => {
-      console.log('errer', data.error);
+      // console.log('errer', data.error);
       if (data.error) {
         setValues({ ...values, error: data.error, success: false });
       } else {
@@ -129,7 +105,6 @@ const Signup = () => {
 
       <div className='signup2'>{signUpForm()}</div>
       {JSON.stringify(values)}
-      {JSON.stringify(API)}
     </div>
   );
 };
