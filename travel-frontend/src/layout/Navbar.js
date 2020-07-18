@@ -48,12 +48,6 @@ const Navbar = ({ history }) => {
               </Fragment>
             )}
           </ul>
-
-          {/* <ul>
-            <li>
-              <Link to='/Signout'>Sigout</Link>
-            </li>
-          </ul> */}
           <ul>
             <li>
               <Link to='/Event'>Events</Link>
