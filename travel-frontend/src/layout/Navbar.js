@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../App.css';
+import { isAuthenticated } from '../auth';
 
 const Navbar = () => {
   return (
@@ -16,16 +17,39 @@ const Navbar = () => {
 
         <div className='othernav'>
           <ul>
-            <li>
-              {' '}
-              <Link to='/Signin'>Signin</Link>
-            </li>
+            {isAuthenticated() && (
+              <Fragment>
+                <ul>
+                  <li>
+                    {' '}
+                    <Link to='/Signin'>Signin</Link>
+                  </li>
+
+                  <li>
+                    <Link to='/Signup'>Signup</Link>
+                  </li>
+                </ul>
+              </Fragment>
+            )}
           </ul>
+
           <ul>
-            <li>
-              <Link to='/Signup'>Signup</Link>
-            </li>
+            {isAuthenticated() && (
+              <Fragment>
+                <ul>
+                  <li>
+                    <Link to='/Signout'>Sigout</Link>
+                  </li>
+                </ul>
+              </Fragment>
+            )}
           </ul>
+
+          {/* <ul>
+            <li>
+              <Link to='/Signout'>Sigout</Link>
+            </li>
+          </ul> */}
           <ul>
             <li>
               <Link to='/Event'>Events</Link>
@@ -37,4 +61,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
