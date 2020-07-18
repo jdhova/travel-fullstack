@@ -18,7 +18,7 @@ const Navbar = () => {
           <ul>
             <li>
               {' '}
-              <Link to='/signin'>Signin</Link>
+              <Link to='/Signin'>Signin</Link>
             </li>
           </ul>
           <ul>
