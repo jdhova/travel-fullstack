@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import '../App.css';
-import { isAuthenticated } from '../auth';
+import { signout, isAuthenticated } from '../auth';
 
-const Navbar = () => {
+const Navbar = ({ history }) => {
   return (
     <Fragment>
       <div className='main-nav'>
@@ -17,18 +17,16 @@ const Navbar = () => {
 
         <div className='othernav'>
           <ul>
-            {isAuthenticated() && (
+            {!isAuthenticated() && (
               <Fragment>
-                <ul>
-                  <li>
-                    {' '}
-                    <Link to='/Signin'>Signin</Link>
-                  </li>
+                <li>
+                  {' '}
+                  <Link to='/Signin'>Signin</Link>
+                </li>
 
-                  <li>
-                    <Link to='/Signup'>Signup</Link>
-                  </li>
-                </ul>
+                <li>
+                  <Link to='/Signup'>Signup</Link>
+                </li>
               </Fragment>
             )}
           </ul>
@@ -37,7 +35,13 @@ const Navbar = () => {
             {isAuthenticated() && (
               <Fragment>
                 <ul>
-                  <li>
+                  <li
+                    onClick={() =>
+                      signout(() => {
+                        history.push('/');
+                      })
+                    }
+                  >
                     <Link to='/Signout'>Sigout</Link>
                   </li>
                 </ul>
