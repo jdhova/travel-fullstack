@@ -5,29 +5,46 @@ import { Link } from 'react-router-dom';
 import { createEvent } from './apiAdmin';
 
 const AddEvent = () => {
-  const [name, setName] = useState('');
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [values, setValues] = useState({
+    name: '',
+    photo: '',
+    description: '',
+    success: false,
+    error: false,
+  });
+
+  const { name, photo, description, success, error } = values;
+
+  // const [name, setName] = useState('');
+  // const [photo, setPhoto] = useState('');
+  // const [description, setdescription] = useState('');
+  // const [error, setError] = useState(false);
+  // const [success, setSuccess] = useState(false);
 
   // destructure user and token from localstorage
   const { user, token } = isAuthenticated();
 
-  const onChange = (e) => {
-    setError('');
-    setName(e.target.value);
+  // const onChange = (e) => {
+  //   setError('');
+  //   setName(e.target.value);
+  //   setdescription(e.target.value);
+  // };
+
+  const onChange = (name) => (e) => {
+    setValues({ ...values, error: false, [name]: e.target.value });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setError('');
-    setSuccess(false);
+    setValues('');
+    setValues(false);
     // make request to api to create Event
     createEvent(user._id, token, { name }).then((data) => {
       if (data.error) {
-        setError(data.error);
+        setValues(data.error);
       } else {
-        setError('');
-        setSuccess(true);
+        setValues('');
+        setValues(true);
       }
     });
   };
@@ -37,9 +54,9 @@ const AddEvent = () => {
       <div className='form-group'>
         <label className='text-muted'>Name</label>
         <input
-          type='text'
+          type='name'
           className='form-control'
-          onChange={onChange}
+          onChange={onChange('name')}
           value={name}
           autoFocus
           required
@@ -49,10 +66,10 @@ const AddEvent = () => {
       <div className='form-group'>
         <label className='text-muted'>Description</label>
         <input
-          type='textarea'
+          type='description'
           className='form-control'
-          onChange={onChange}
-          value={name}
+          onChange={onChange('description')}
+          value={description}
           autoFocus
           required
         />
@@ -108,6 +125,8 @@ const AddEvent = () => {
           {goBack()}
         </div>
       </div>
+
+      {JSON.stringify(values)}
       {/* // </Layout> */}
     </Fragment>
   );
