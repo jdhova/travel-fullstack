@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li className='list-group-item'>
-            <Link className='nav-link' to='/admin/trips'>
+            <Link className='nav-link' to='/admin/events'>
               Manage Events
             </Link>
           </li>
@@ -53,10 +53,13 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className='row'>
-      <div className='col-3'>{adminLinks()}</div>
-      <div className='col-9'>{adminInfo()}</div>
-    </div>
+    <Fragment>
+      <h3 className='greeting'>{`G'day ${name}!`}</h3>
+      <div className='row'>
+        <div className='col-3'>{adminLinks()}</div>
+        <div className='col-9'>{adminInfo()}</div>
+      </div>
+    </Fragment>
   );
 };
 
