@@ -9,11 +9,21 @@ const AddEvent = () => {
     name: '',
     photo: '',
     description: '',
-    success: false,
+    loading: false,
     error: false,
+    formData: '',
+    createdEvent: '',
   });
 
-  const { name, photo, description, success, error } = values;
+  const {
+    name,
+    photo,
+    description,
+    loading,
+    error,
+    formData,
+    createdEvent,
+  } = values;
 
   // const [name, setName] = useState('');
   // const [photo, setPhoto] = useState('');
@@ -30,21 +40,52 @@ const AddEvent = () => {
   //   setdescription(e.target.value);
   // };
 
-  const onChange = (name) => (e) => {
-    setValues({ ...values, error: false, [name]: e.target.value });
+  // const onChange = (name) => (e) => {
+  //   setValues({ ...values, error: false, [name]: e.target.value });
+  // };
+
+  const onChange = (name) => (event) => {
+    const value = name === 'photo' ? event.target.files[0] : event.target.value;
+    // formData.set(name, value);
+    setValues({ ...values, [name]: value, error: false });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setValues('');
-    setValues(false);
-    // make request to api to create Event
-    createEvent(user._id, token, { name }).then((data) => {
+  // const onChange = (name) => (event) => {
+  //   const value = name === 'photo' ? event.target.files[0] : event.target.value;
+  //   formData.set(name, value);
+  //   setValues({ ...values, [name]: value });
+  // };
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   setValues('');
+  //   setValues(false);
+  //   // make request to api to create Event
+  //   createEvent(user._id, token, { name }).then((data) => {
+  //     if (data.error) {
+  //       setValues(data.error);
+  //     } else {
+  //       setValues('');
+  //       setValues(true);
+  //     }
+  //   });
+  // };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setValues({ ...values, error: '', loading: true });
+
+    createEvent(user._id, token, formData).then((data) => {
       if (data.error) {
-        setValues(data.error);
+        setValues({ ...values, error: data.error });
       } else {
-        setValues('');
-        setValues(true);
+        setValues({
+          ...values,
+          name: '',
+          description: '',
+          photo: '',
+          createdEvent: data.name,
+        });
       }
     });
   };
@@ -90,14 +131,25 @@ const AddEvent = () => {
     </form>
   );
 
-  const showSuccess = () => {
-    if (success) {
-      return <h3 className='text-success'>{name} is created</h3>;
-    }
-  };
+  const showSuccess = () => (
+    <div
+      className='alert alert-info'
+      style={{ display: createdEvent ? '' : 'none' }}
+    >
+      <h2>{`${createdEvent}`} is created!</h2>
+    </div>
+  );
+
+  const showLoading = () =>
+    loading && (
+      <div className='alert alert-success'>
+        <h2>Loading...</h2>
+      </div>
+    );
 
   const showError = () => {
     if (error) {
+      console.table(error);
       return <h3 className='text-danger'>Event should be unique</h3>;
     }
   };
@@ -120,6 +172,7 @@ const AddEvent = () => {
       <div className='row'>
         <div className='col-md-8 offset-md-2'>
           {showSuccess()}
+          {showLoading()}
           {showError()}
           {newEventForm()}
           {goBack()}
