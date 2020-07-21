@@ -1,5 +1,5 @@
-import React, { useState, Fragment } from 'react';
-// import Layout from '../core/Layout';
+import React, { useState, Fragment, useEffect } from 'react';
+
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
 import { createEvent } from './apiAdmin';
@@ -25,51 +25,17 @@ const AddEvent = () => {
     createdEvent,
   } = values;
 
-  // const [name, setName] = useState('');
-  // const [photo, setPhoto] = useState('');
-  // const [description, setdescription] = useState('');
-  // const [error, setError] = useState(false);
-  // const [success, setSuccess] = useState(false);
+  useEffect(() => {
+    setValues({ ...values, formData: new FormData() });
+  }, []);
 
-  // destructure user and token from localstorage
   const { user, token } = isAuthenticated();
-
-  // const onChange = (e) => {
-  //   setError('');
-  //   setName(e.target.value);
-  //   setdescription(e.target.value);
-  // };
-
-  // const onChange = (name) => (e) => {
-  //   setValues({ ...values, error: false, [name]: e.target.value });
-  // };
 
   const onChange = (name) => (event) => {
     const value = name === 'photo' ? event.target.files[0] : event.target.value;
-    // formData.set(name, value);
+    formData.set(name, value);
     setValues({ ...values, [name]: value, error: false });
   };
-
-  // const onChange = (name) => (event) => {
-  //   const value = name === 'photo' ? event.target.files[0] : event.target.value;
-  //   formData.set(name, value);
-  //   setValues({ ...values, [name]: value });
-  // };
-
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   setValues('');
-  //   setValues(false);
-  //   // make request to api to create Event
-  //   createEvent(user._id, token, { name }).then((data) => {
-  //     if (data.error) {
-  //       setValues(data.error);
-  //     } else {
-  //       setValues('');
-  //       setValues(true);
-  //     }
-  //   });
-  // };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -149,7 +115,6 @@ const AddEvent = () => {
 
   const showError = () => {
     if (error) {
-      console.table(error);
       return <h3 className='text-danger'>Event should be unique</h3>;
     }
   };
@@ -163,10 +128,6 @@ const AddEvent = () => {
   );
 
   return (
-    // <Layout
-    //   title='Add a new event'
-
-    // >
     <Fragment>
       <h3>{`G'day ${user.name}, ready to add a new event?`}</h3>
       <div className='row'>
@@ -180,7 +141,6 @@ const AddEvent = () => {
       </div>
 
       {JSON.stringify(values)}
-      {/* // </Layout> */}
     </Fragment>
   );
 };
