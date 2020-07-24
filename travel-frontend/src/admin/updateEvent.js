@@ -6,16 +6,16 @@
 // // {category: ["5cd0258f2793ec6e100bc191"], price: []}
 // // http://localhost:3000/admin/category/update/5cd0258f2793ec6e100bc191
 
-// const UpdateEvent = ({ match }) => {
-//   const [values, setValues] = useState({
-//     name: '',
-//     error: '',
-//     redirectToProfile: false,
-//     formData: '',
-//     photo: '',
-//     description: '',
-//     loading: false,
-//   });
+const UpdateEvent = ({ match }) => {
+  const [values, setValues] = useState({
+    name: '',
+    error: '',
+    redirectToProfile: false,
+    formData: '',
+    photo: '',
+    description: '',
+    loading: false,
+  });
 
 //   // destructure user and token from localStorage
 //   const { user, token } = isAuthenticated();
