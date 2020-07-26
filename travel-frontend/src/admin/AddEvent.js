@@ -72,7 +72,7 @@ const AddEvent = () => {
 
       <div className='form-group'>
         <label className='text-muted'>Description</label>
-        <input
+        <textarea
           type='description'
           className='form-control'
           onChange={onChange('description')}

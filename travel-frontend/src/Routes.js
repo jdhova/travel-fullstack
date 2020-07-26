@@ -9,6 +9,7 @@ import AdminRoute from './auth/AdminRoute';
 import AdminDashboard from './user/AdminDashboard';
 import AddEvent from './admin/AddEvent';
 import UpdateEvent from './admin/UpdateEvent';
+import AddTrip from './admin/AddTrip';
 
 const Routes = () => {
   return (
@@ -26,7 +27,7 @@ const Routes = () => {
         />
 
         <AdminRoute path='/create/event' exact component={AddEvent} />
-        {/* <AdminRoute path='/create/trip' exact component={AddTrip} />  */}
+        <AdminRoute path='/create/trip' exact component={AddTrip} />
       </Switch>
     </BrowserRouter>
   );
