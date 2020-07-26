@@ -193,11 +193,15 @@ const AddTrip = () => {
       </div>
     );
 
+  const goBack = () => (
+    <div className='mt-5'>
+      <Link to='/admin/dashboard' className='text-warning'>
+        Back to Dashboard
+      </Link>
+    </div>
+  );
+
   return (
-    // // <Layout
-    //   title='Add a new product'
-    //   description={`G'day ${user.name}, ready to add a new product?`}
-    // >
     <Fragment>
       <h3>{`G'day ${user.name}, ready to add a new Trip?`}</h3>
       <div className='row'>
@@ -206,9 +210,11 @@ const AddTrip = () => {
           {showSuccess()}
           {showError()}
           {newPostForm()}
+          {goBack()}
         </div>
       </div>
-      {/* </Layout> */}
+
+      {JSON.stringify(values)}
     </Fragment>
   );
 };
