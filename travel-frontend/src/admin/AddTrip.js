@@ -36,27 +36,34 @@ const AddTrip = () => {
     formData,
   } = values;
 
-  // load categories and set form data
-  // another way of component did mount to help populate
-  // the categories with the new product.
+  // useEffect loads the function when component mounts
+  // and hereby getting info from the back end when events is rcieved the
+  //.map at options maps tru the events and render the one thats needed.
 
-  // const init = () => {
-  //   getCategories().then((data) => {
-  //     if (data.error) {
-  //       setValues({ ...values, error: data.error });
-  //     } else {
-  //       setValues({
-  //         ...values,
-  //         categories: data,
-  //         formData: new FormData(),
-  //       });
-  //     }
-  //   });
-  // };
+  const init = () => {
+    getEvents().then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        setValues({
+          ...values,
+          events: data,
+          formData: new FormData(),
+        });
+      }
+    });
+  };
 
   useEffect(() => {
-    setValues({ ...values, formData: new FormData() });
+    init();
   }, []);
+
+  //  runs the function when the component mounts and
+  // makes it accessible and ready to use.
+
+  // useEffect(() => {
+  //   setValues({ ...values, formData: new FormData() });
+  // }, []);
 
   //  check what this code does???
   const onChange = (name) => (event) => {
@@ -130,7 +137,7 @@ const AddTrip = () => {
         />
       </div>
 
-      <div className='form-group'>
+      {/* <div className='form-group'>
         <label className='text-muted'>Event</label>
         <select onChange={onChange('event')} className='form-control'>
           <option>Please select</option>
@@ -138,20 +145,20 @@ const AddTrip = () => {
           <option value='5f1e18e821a39658d62234f2'>Toronto new Trip</option>
           <option value='5f172c6bd1ac8f289391d196'>Dallas new trip</option>
         </select>
-      </div>
+      </div> */}
 
-      {/* <div className='form-group'>
-        <label className='text-muted'>Category</label>
-        <select onChange={onChange('category')} className='form-control'>
+      <div className='form-group'>
+        <label className='text-muted'>Event</label>
+        <select onChange={onChange('event')} className='form-control'>
           <option>Please select</option>
-          {categories &&
-            categories.map((c, i) => (
+          {events &&
+            events.map((c, i) => (
               <option key={i} value={c._id}>
                 {c.name}
               </option>
             ))}
         </select>
-      </div> */}
+      </div>
 
       <div className='form-group'>
         <label className='text-muted'>Shipping</label>
@@ -202,11 +209,6 @@ const AddTrip = () => {
     );
 
   return (
-    // <Layout
-    //   title='Add a new product'
-    //   description=
-    // >
-
     <Fragment>
       <h3>{`G'day ${user.name}, ready to add a new product?`}</h3>
       <div className='row'>
@@ -217,7 +219,6 @@ const AddTrip = () => {
           {newPostForm()}
         </div>
       </div>
-      {/* </Layout> */}
     </Fragment>
   );
 };
