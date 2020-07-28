@@ -61,11 +61,6 @@ const AddTrip = () => {
   //  runs the function when the component mounts and
   // makes it accessible and ready to use.
 
-  // useEffect(() => {
-  //   setValues({ ...values, formData: new FormData() });
-  // }, []);
-
-  //  check what this code does???
   const onChange = (name) => (event) => {
     const value = name === 'photo' ? event.target.files[0] : event.target.value;
     formData.set(name, value);
@@ -137,16 +132,6 @@ const AddTrip = () => {
         />
       </div>
 
-      {/* <div className='form-group'>
-        <label className='text-muted'>Event</label>
-        <select onChange={onChange('event')} className='form-control'>
-          <option>Please select</option>
-
-          <option value='5f1e18e821a39658d62234f2'>Toronto new Trip</option>
-          <option value='5f172c6bd1ac8f289391d196'>Dallas new trip</option>
-        </select>
-      </div> */}
-
       <div className='form-group'>
         <label className='text-muted'>Event</label>
         <select onChange={onChange('event')} className='form-control'>
@@ -208,6 +193,14 @@ const AddTrip = () => {
       </div>
     );
 
+  const goBack = () => (
+    <div className='mt-5'>
+      <Link to='/admin/dashboard' className='text-warning'>
+        Back to Dashboard
+      </Link>
+    </div>
+  );
+
   return (
     <Fragment>
       <h3>{`G'day ${user.name}, ready to add a new product?`}</h3>
@@ -217,6 +210,7 @@ const AddTrip = () => {
           {showSuccess()}
           {showError()}
           {newPostForm()}
+          {goBack()}
         </div>
       </div>
     </Fragment>

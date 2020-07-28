@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signin from './user/Signin';
 import Signup from './user/Signup';
-import Home from './layout/Home';
+import Home from './core/Home';
 import PrivateRoute from './auth/PrivateRoute';
 import Dashboard from './user/UserDashboard';
 import AdminRoute from './auth/AdminRoute';
