@@ -46,7 +46,7 @@ export const getFilteredTrips = (skip, limit, filters = {}) => {
 export const list = (params) => {
   const query = queryString.stringify(params);
   console.log('query', query);
-  return fetch(`${API}/events/search?${query}`, {
+  return fetch(`${API}/trips/search?${query}`, {
     method: 'GET',
   })
     .then((response) => {
