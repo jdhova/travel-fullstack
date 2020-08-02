@@ -10,10 +10,12 @@ import AdminDashboard from './user/AdminDashboard';
 import AddEvent from './admin/AddEvent';
 import UpdateEvent from './admin/UpdateEvent';
 import AddTrip from './admin/AddTrip';
+import Navbar from './core/Navbar';
 
 const Routes = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Home />
       <Switch>
         <Route exact path='/Signup' component={Signup} />
@@ -25,7 +27,6 @@ const Routes = () => {
           exact
           component={UpdateEvent}
         />
-
         <AdminRoute path='/create/event' exact component={AddEvent} />
         <AdminRoute path='/create/trip' exact component={AddTrip} />
       </Switch>
