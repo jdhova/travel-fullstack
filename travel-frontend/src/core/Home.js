@@ -13,60 +13,59 @@
 
 import React, { useState, useEffect, Fragment } from 'react';
 // import Layout from './Layout';
-import { getProducts } from './apiCore';
+import { getTrips } from './apiCore';
 import Card from './Card';
 import Search from './Search';
 
 const Home = () => {
-  const [productsBySell, setProductsBySell] = useState([]);
-  const [productsByArrival, setProductsByArrival] = useState([]);
+  const [tripsBySell, setTripsBySell] = useState([]);
+  const [tripsByArrival, setTripsByArrival] = useState([]);
   const [error, setError] = useState(false);
 
-  const loadProductsBySell = () => {
-    getProducts('sold').then((data) => {
+  const loadTripsBySell = () => {
+    getTrips('sold').then((data) => {
       if (data.error) {
         setError(data.error);
       } else {
-        setProductsBySell(data);
+        setTripsBySell(data);
       }
     });
   };
 
-  const loadProductsByArrival = () => {
-    getProducts('createdAt').then((data) => {
+  const loadTripsByArrival = () => {
+    getTrips('createdAt').then((data) => {
       console.log(data);
       if (data.error) {
         setError(data.error);
       } else {
-        setProductsByArrival(data);
+        setTripsByArrival(data);
       }
     });
   };
 
   useEffect(() => {
-    loadProductsByArrival();
-    loadProductsBySell();
+    loadTripsByArrival();
+    loadTripsBySell();
   }, []);
 
   return (
     <Fragment>
       {/* // <Layout */}
-      // title="FullStack React Node MongoDB Ecommerce App" // description="Node
-      React E-commerce App" // className="container-fluid" // >
+
       <Search />
       <h2 className='mb-4'>New Arrivals</h2>
       <div className='row'>
-        {productsByArrival.map((product, i) => (
+        {tripsByArrival.map((trip, i) => (
           <div key={i} className='col-4 mb-3'>
-            <Card product={product} />
+            <Card trip={trip} />
           </div>
         ))}
       </div>
       <h2 className='mb-4'>Best Sellers</h2>
       <div className='row'>
-        {productsBySell.map((product, i) => (
+        {tripsBySell.map((trip, i) => (
           <div key={i} className='col-4 mb-3'>
-            <Card product={product} />
+            <Card trip={trip} />
           </div>
         ))}
       </div>

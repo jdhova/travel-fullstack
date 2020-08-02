@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCategories, list } from './apiCore';
+import { getEvents, list } from './apiCore';
 import Card from './Card';
 
 const Search = () => {
@@ -14,7 +14,7 @@ const Search = () => {
   const { categories, category, search, results, searched } = data;
 
   const loadCategories = () => {
-    getCategories().then((data) => {
+    getEvents().then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
