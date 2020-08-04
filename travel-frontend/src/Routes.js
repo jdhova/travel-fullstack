@@ -18,8 +18,8 @@ const Routes = () => {
       <Navbar />
       <Home />
       <Switch>
-        {/* <Route exact path='/Signup' component={Signup} />
-        <Route exact path='/Signin' component={Signin} /> */}
+        <Route exact path='/Signup' component={Signup} />
+        <Route exact path='/Signin' component={Signin} />
         <PrivateRoute path='/user/dashboard' exact component={Dashboard} />
         <AdminRoute path='/admin/dashboard' exact component={AdminDashboard} />
         <AdminRoute
