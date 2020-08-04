@@ -106,14 +106,17 @@ const Card = ({
   //   };
 
   return (
+    // <div className='col-10 mb-8'>
     <div className='card '>
       <div className='card-header card-header-1 '>{trip.name}</div>
       <div className='card-body'>
         {/* {shouldRedirect(redirect)} */}
         <ShowImage item={trip} url='trip' />
+        <p className='card-p  mt-2'>{trip.description} </p>
         <p className='card-p  mt-2'>{trip.description.substring(0, 100)} </p>
+        {/* <p className='card-p black-15'>$ {trip.photo}</p> */}
         <p className='card-p black-10'>$ {trip.price}</p>
-        <p className='black-9'>Event: {trip.event && trip.event.name}</p>
+        {/* <p className='black-9'>Event: {trip.event && trip.event.name}</p> */}
 
         {/* <p className='black-8'>Added on {moment(trip.createdAt).fromNow()}</p>
         {showStock(trip.quantity)}
@@ -129,6 +132,7 @@ const Card = ({
         {showCartUpdateOptions(cartUpdate)} */}
       </div>
     </div>
+    // </div>
   );
 };
 
