@@ -138,29 +138,31 @@
 
 // export default Card;
 
-import React from 'react';
-import { Link } from 'react-router-dom';
+//// NEW LINE HERE
 
-const Card = ({ trip }) => {
-  return (
-    <div className='col-4 mb-3'>
-      <div className='card'>
-        <div className='card-header'>{trip.name}</div>
-        <div className='card-body'>
-          <p>{trip.description}</p>
-          <p>{trip.price}</p>
-          <Link to='/'>
-            <button className='btn btn-outline-primary mt-2 mb-2'>
-              View Product
-            </button>
-            <button className='btn btn-outline-warning mt-2 mb-2'>
-              Add to cart
-            </button>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
+// import React from 'react';
+// import { Link } from 'react-router-dom';
 
-export default Card;
+// const Card = ({ trip }) => {
+//   return (
+//     <div className='col-4 mb-3'>
+//       <div className='card'>
+//         <div className='card-header'>{trip.name}</div>
+//         <div className='card-body'>
+//           <p>{trip.description}</p>
+//           <p>{trip.price}</p>
+//           <Link to='/'>
+//             <button className='btn btn-outline-primary mt-2 mb-2'>
+//               View Product
+//             </button>
+//             <button className='btn btn-outline-warning mt-2 mb-2'>
+//               Add to cart
+//             </button>
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Card;

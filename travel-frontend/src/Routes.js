@@ -16,7 +16,7 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Home />
+      {/* <Home /> */}
       <Switch>
         <Route exact path='/Signup' component={Signup} />
         <Route exact path='/Signin' component={Signin} />
