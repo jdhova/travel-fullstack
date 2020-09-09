@@ -46,10 +46,10 @@ const Home = () => {
   //  this runs anytime the component loads for the first time
   // and there is some change in the state.
 
-  // useEffect(() => {
-  //   loadTripsByArrival();
-  //   loadTripsBySell();
-  // }, []);
+  useEffect(() => {
+    loadTripsByArrival();
+    loadTripsBySell();
+  }, []);
 
   return (
     <Fragment>
