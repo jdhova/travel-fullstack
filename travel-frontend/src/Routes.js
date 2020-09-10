@@ -27,7 +27,7 @@ const Routes = () => {
           exact
           component={UpdateEvent}
         />
-        <AdminRoute path='/create/event' exact component={AddEvent} />
+        <AdminRoute path='/create/events' exact component={AddEvent} />
         <AdminRoute path='/create/trip' exact component={AddTrip} />
       </Switch>
     </BrowserRouter>

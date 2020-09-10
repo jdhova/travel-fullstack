@@ -13,7 +13,7 @@ const AdminDashboard = () => {
         <h4 className='card-header'>Admin Links</h4>
         <ul className='list-group'>
           <li className='list-group-item'>
-            <Link className='nav-link' to='/create/event'>
+            <Link className='nav-link' to='/create/events'>
               Create Events
             </Link>
           </li>
