@@ -1,23 +1,5 @@
 import { API } from '../config';
 
-// export const createEvent = (userId, token, event) => {
-//   return fetch(`${API}/event/create/${userId}`, {
-//     method: 'POST',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//       Authorization: `Bearer ${token}`,
-//     },
-//     body: JSON.stringify(event),
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
-
 export const createEvent = (userId, token, event) => {
   return fetch(`${API}/event/create/${userId}`, {
     method: 'POST',
