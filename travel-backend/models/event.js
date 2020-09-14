@@ -7,7 +7,7 @@ const eventSchema = new mongoose.Schema(
       trim: true,
       required: true,
       maxlength: 52,
-      // unique: true,
+      //unique: true,
     },
     description: {
       type: String,
@@ -17,6 +17,7 @@ const eventSchema = new mongoose.Schema(
     photo: {
       data: Buffer,
       contentType: String,
+      // required: true,
     },
   },
   { timestamps: true }
