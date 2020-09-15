@@ -1,8 +1,9 @@
 import { API } from '../config';
 import queryString from 'query-string';
 
+/// need to understadn if its Trips or Trip
 export const getTrips = (sortBy) => {
-  return fetch(`${API}/events?sortBy=${sortBy}&order=desc&limit=6`, {
+  return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`, {
     method: 'GET',
   })
     .then((response) => {
@@ -11,15 +12,38 @@ export const getTrips = (sortBy) => {
     .catch((err) => console.log(err));
 };
 
-export const getEvents = () => {
-  return fetch(`${API}/events`, {
+/// need to understadn if its Events or Event
+export const getEvents = (sortBy) => {
+  return fetch(`${API}/events?sortBy=${sortBy}&order=desc&limit=6`, {
     method: 'GET',
   })
     .then((response) => {
       return response.json();
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+    });
 };
+
+// export const getTrips = (sortBy) => {
+//   return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`, {
+//     method: 'GET',
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
+
+// export const getEvents = () => {
+//   return fetch(`${API}/events`, {
+//     method: 'GET',
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
 
 export const getFilteredTrips = (skip, limit, filters = {}) => {
   const data = {

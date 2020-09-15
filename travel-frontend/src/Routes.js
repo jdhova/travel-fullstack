@@ -3,12 +3,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signin from './user/Signin';
 import Signup from './user/Signup';
 import Home from './core/Home';
+import Events from './core/Events';
 import PrivateRoute from './auth/PrivateRoute';
 import Dashboard from './user/UserDashboard';
 import AdminRoute from './auth/AdminRoute';
 import AdminDashboard from './user/AdminDashboard';
 import AddEvent from './admin/AddEvent';
-import AddEvents from './administrator/AddEvents';
+// import AddEvents from './administrator/AddEvents';
 import UpdateEvent from './admin/UpdateEvent';
 import AddTrip from './admin/AddTrip';
 import Navbar from './core/Navbar';
@@ -19,6 +20,8 @@ const Routes = () => {
       <Navbar />
       {/* <Home /> */}
       <Switch>
+        <Route exact path='/Home' component={Home} />
+        <Route exact path='/Events' component={Events} />
         <Route exact path='/Signup' component={Signup} />
         <Route exact path='/Signin' component={Signin} />
         <PrivateRoute path='/user/dashboard' exact component={Dashboard} />

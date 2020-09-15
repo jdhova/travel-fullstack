@@ -50,7 +50,7 @@ const Navbar = ({ history }) => {
           </ul>
           <ul>
             <li>
-              <Link to='/Event'>Events</Link>
+              <Link to='/Events'>Events</Link>
             </li>
           </ul>
         </div>
