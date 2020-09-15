@@ -2,6 +2,7 @@ import { API } from '../config';
 import queryString from 'query-string';
 
 /// need to understadn if its Trips or Trip
+
 export const getTrips = (sortBy) => {
   return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`, {
     method: 'GET',
@@ -11,6 +12,16 @@ export const getTrips = (sortBy) => {
     })
     .catch((err) => console.log(err));
 };
+
+// export const getTrips = () => {
+//   return fetch(`${API}/trips`, {
+//     method: 'GET',
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
 
 /// need to understadn if its Events or Event
 export const getEvents = (sortBy) => {
