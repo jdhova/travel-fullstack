@@ -13,17 +13,6 @@ export const getTrips = (sortBy) => {
     .catch((err) => console.log(err));
 };
 
-// export const getTrips = () => {
-//   return fetch(`${API}/trips`, {
-//     method: 'GET',
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .catch((err) => console.log(err));
-// };
-
-/// need to understadn if its Events or Event
 export const getEvents = (sortBy) => {
   return fetch(`${API}/events?sortBy=${sortBy}&order=desc&limit=6`, {
     method: 'GET',
@@ -31,30 +20,8 @@ export const getEvents = (sortBy) => {
     .then((response) => {
       return response.json();
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 };
-
-// export const getTrips = (sortBy) => {
-//   return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`, {
-//     method: 'GET',
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .catch((err) => console.log(err));
-// };
-
-// export const getEvents = () => {
-//   return fetch(`${API}/events`, {
-//     method: 'GET',
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .catch((err) => console.log(err));
-// };
 
 export const getFilteredTrips = (skip, limit, filters = {}) => {
   const data = {

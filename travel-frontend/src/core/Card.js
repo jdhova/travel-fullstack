@@ -4,6 +4,23 @@
 // import moment from 'moment';
 // import { addItem, updateItem, removeItem } from './cartHelpers';
 
+import React from 'react';
+
+const Card = ({ event }) => {
+  return (
+    <div className='col-4 mb-8'>
+      <div className='main-card'>
+        <div className='main-header'>{event.name}</div>
+        <div className='main-body'>
+          <p>{event.description}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+
 // const Card = ({
 //   trip,
 //   //   showViewProductButton = true,

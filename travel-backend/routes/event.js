@@ -20,6 +20,7 @@ router.get('/event/:eventId', read);
 router.post('/event/create/:userId', requireSignin, isAuth, isAdmin, create);
 // router.put('/event/:eventUpdateId/:userId', requireSignin, isAuth, isAdmin, update);
 router.put('/event/:eventId/:userId', requireSignin, isAuth, isAdmin, update);
+router.get('/event/photo/:eventId', photo); // photo Route
 
 router.delete(
   '/event/:eventId/:userId',
