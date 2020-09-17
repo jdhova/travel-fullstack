@@ -236,9 +236,9 @@ exports.listBySearch = (req, res) => {
 };
 
 exports.photo = (req, res, next) => {
-  if (req.product.photo.data) {
-    res.set('Content-Type', req.product.photo.contentType);
-    return res.send(req.product.photo.data);
+  if (req.trip.photo.data) {
+    res.set('Content-Type', req.trip.photo.contentType);
+    return res.send(req.trip.photo.data);
   }
   next();
 };

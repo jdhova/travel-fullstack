@@ -4,7 +4,8 @@ import { API } from '../config';
 const ShowImage = ({ item, url }) => (
   <div className='event-img'>
     <img
-      src={`${API}/${url}/photo/${item._id}`}
+      // src={`${API}/${url}/photo/${item._id}`}
+      src={`${API}/trips/photo/${item._id}`}
       alt={item.name}
       className='mb-3'
       style={{ maxHeight: '100%', maxWidth: '100%' }}

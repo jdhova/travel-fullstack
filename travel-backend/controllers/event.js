@@ -67,6 +67,14 @@ exports.create = (req, res) => {
   });
 };
 
+exports.photo = (req, res, next) => {
+  if (req.event.photo.data) {
+    res.set('Content-Type', req.event.photo.contentType);
+    return res.send(req.event.photo.data);
+  }
+  next();
+};
+
 exports.read = (req, res) => {
   req.event.photo = undefined;
   return res.json(req.event);

@@ -3,6 +3,16 @@ import queryString from 'query-string';
 
 /// need to understadn if its Trips or Trip
 
+// export const getTrips = (sortBy) => {
+//   return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`, {
+//     method: 'GET',
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
+
 export const getTrips = (sortBy) => {
   return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`, {
     method: 'GET',
