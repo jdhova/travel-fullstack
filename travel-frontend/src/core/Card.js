@@ -5,6 +5,7 @@
 // import { addItem, updateItem, removeItem } from './cartHelpers';
 
 import React from 'react';
+import ShowImage from './ShowImage';
 
 const Card = ({ event }) => {
   return (
@@ -12,6 +13,7 @@ const Card = ({ event }) => {
       <div className='main-card'>
         <div className='main-header'>{event.name}</div>
         <div className='main-body'>
+          {/* <ShowImage item={event} url='event' /> */}
           <p>{event.description}</p>
         </div>
       </div>
