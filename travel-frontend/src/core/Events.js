@@ -44,6 +44,10 @@ const Events = () => {
       {/* {JSON.stringify(eventsByArrival)}
       <br></br>
       {JSON.stringify(tripsByArrival)} */}
+
+      {/* {JSON.stringify(eventsByArrival)}
+      <br></br>
+      {JSON.stringify(tripsByArrival)} */}
     </div>
   );
 };

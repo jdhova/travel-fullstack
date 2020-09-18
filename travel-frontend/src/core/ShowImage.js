@@ -5,10 +5,10 @@ const ShowImage = ({ item, url }) => (
   <div className='event-img'>
     <img
       // src={`${API}/${url}/photo/${item._id}`}
-      src={`${API}/trips/photo/${item._id}`}
+      src={`${API}/events/photo/${item._id}`}
       alt={item.name}
       className='mb-3'
-      style={{ maxHeight: '100%', maxWidth: '100%' }}
+      style={{ maxHeight: '0%', maxWidth: '0%' }}
     />
   </div>
 );
