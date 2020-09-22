@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getEvents, getTrips } from './apiCore';
-import Card from './Card';
+import eventCard from './eventCard';
 
 const Events = () => {
   const [tripsByArrival, setTripsByArrival] = useState([]);
@@ -37,7 +37,7 @@ const Events = () => {
       <h3 className='mb-5'>Newest Events</h3>
       <div className='row'>
         {eventsByArrival.map((event, i) => {
-          return <Card key={i} event={event} />;
+          return <eventCard key={i} event={event} />;
         })}
       </div>
 

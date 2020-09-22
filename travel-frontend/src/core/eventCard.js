@@ -7,7 +7,7 @@
 import React from 'react';
 import ShowImage from './ShowImage';
 
-const Card = ({ event }) => {
+const eventCard = ({ event }) => {
   return (
     <div className='col-4 mb-8'>
       <div className='main-card'>
@@ -21,7 +21,7 @@ const Card = ({ event }) => {
   );
 };
 
-export default Card;
+export default eventCard;
 
 // const Card = ({
 //   trip,
