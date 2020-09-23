@@ -4,10 +4,29 @@
 // import moment from 'moment';
 // import { addItem, updateItem, removeItem } from './cartHelpers';
 
+// import React from 'react';
+// import ShowImage from './ShowImage';
+
+// const eventCard = ({ event }) => {
+//   return (
+//     <div className='col-4 mb-8'>
+//       <div className='main-card'>
+//         <div className='main-header'>{event.name}</div>
+//         <div className='main-body'>
+//           <ShowImage item={event} url='event' />
+//           <p>{event.description}</p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default eventCard;
+
 import React from 'react';
 import ShowImage from './ShowImage';
 
-const eventCard = ({ event }) => {
+const Cardevent = ({ event }) => {
   return (
     <div className='col-4 mb-8'>
       <div className='main-card'>
@@ -21,7 +40,7 @@ const eventCard = ({ event }) => {
   );
 };
 
-export default eventCard;
+export default Cardevent;
 
 // const Card = ({
 //   trip,

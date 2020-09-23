@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getEvents, getTrips } from './apiCore';
-import Cardevent from './Cardevent';
+import Cardtrip from './Cardtrip';
 
-const Events = () => {
+const Trips = () => {
   const [tripsByArrival, setTripsByArrival] = useState([]);
   const [eventsByArrival, setEventsByArrival] = useState([]);
   const [error, setError] = useState(false);
@@ -34,14 +34,14 @@ const Events = () => {
 
   return (
     <div>
-      <h3 className='mb-5'>Newest home</h3>
-      <div className='row'>
-        {eventsByArrival.map((event, i) => {
-          return <Cardevent key={i} event={event} />;
+      <h3 className='mb-5'>Newest house</h3>
+      {/* <div className='row'>
+        {tripsByArrival.map((trips, i) => {
+          return <Cardtrip key={i} trips={trips} />;
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default Events;
+export default Trips;

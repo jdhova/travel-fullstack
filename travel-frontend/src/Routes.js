@@ -4,6 +4,7 @@ import Signin from './user/Signin';
 import Signup from './user/Signup';
 import Home from './core/Home';
 import Events from './core/Events';
+import Trips from './core/Trips';
 import PrivateRoute from './auth/PrivateRoute';
 import Dashboard from './user/UserDashboard';
 import AdminRoute from './auth/AdminRoute';
@@ -22,6 +23,7 @@ const Routes = () => {
       <Switch>
         <Route exact path='/Home' component={Home} />
         <Route exact path='/Events' component={Events} />
+        <Route exact path='/Trips' component={Trips} />
         <Route exact path='/Signup' component={Signup} />
         <Route exact path='/Signin' component={Signin} />
         <PrivateRoute path='/user/dashboard' exact component={Dashboard} />

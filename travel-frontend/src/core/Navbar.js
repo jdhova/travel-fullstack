@@ -52,6 +52,9 @@ const Navbar = ({ history }) => {
             <li>
               <Link to='/Events'>Events</Link>
             </li>
+            <li>
+              <Link to='/Trips'>Trips</Link>
+            </li>
           </ul>
         </div>
       </div>
