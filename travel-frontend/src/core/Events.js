@@ -34,7 +34,7 @@ const Events = () => {
 
   return (
     <div>
-      <h3 className='mb-5'>Newest homesss</h3>
+      <h3 className='mb-5'>Newest Events</h3>
       <div className='row'>
         {eventsByArrival.map((event, i) => {
           return <Cardevent key={i} event={event} />;

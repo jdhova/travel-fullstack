@@ -34,12 +34,12 @@ const Trips = () => {
 
   return (
     <div>
-      <h3 className='mb-5'>Newest house</h3>
-      {/* <div className='row'>
-        {tripsByArrival.map((trips, i) => {
-          return <Cardtrip key={i} trips={trips} />;
+      <h3 className='mb-5'>Newest Trips</h3>
+      <div className='row'>
+        {tripsByArrival.map((trip, i) => {
+          return <Cardtrip key={i} trip={trip} />;
         })}
-      </div> */}
+      </div>
     </div>
   );
 };
