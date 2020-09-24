@@ -134,13 +134,13 @@ exports.update = (req, res) => {
 exports.list = (req, res) => {
   let order = req.query.order ? req.query.order : 'asc';
   let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
-  let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+  // let limit = req.query.limit ? parseInt(req.query.limit) : 30;
 
   Trip.find()
     .select('-photo')
     .populate('category')
     .sort([[sortBy, order]])
-    .limit(limit)
+    // .limit(limit)
     .exec((err, trips) => {
       if (err) {
         return res.status(400).json({
@@ -157,10 +157,10 @@ exports.list = (req, res) => {
  */
 
 exports.listRelated = (req, res) => {
-  let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+  // let limit = req.query.limit ? parseInt(req.query.limit) : 6;
 
   Trip.find({ _id: { $ne: req.trip }, category: req.trip.category })
-    .limit(limit)
+    // .limit(limit)
     .populate('event', '_id name')
     .exec((err, trips) => {
       if (err) {
@@ -194,7 +194,7 @@ exports.listEvents = (req, res) => {
 exports.listBySearch = (req, res) => {
   let order = req.body.order ? req.body.order : 'desc';
   let sortBy = req.body.sortBy ? req.body.sortBy : '_id';
-  let limit = req.body.limit ? parseInt(req.body.limit) : 100;
+  // let limit = req.body.limit ? parseInt(req.body.limit) : 100;
   let skip = parseInt(req.body.skip);
   let findArgs = {};
 
@@ -221,7 +221,7 @@ exports.listBySearch = (req, res) => {
     .populate('event')
     .sort([[sortBy, order]])
     .skip(skip)
-    .limit(limit)
+    // .limit(limit)
     .exec((err, data) => {
       if (err) {
         return res.status(400).json({

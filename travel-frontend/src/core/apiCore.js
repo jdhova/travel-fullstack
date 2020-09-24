@@ -14,7 +14,8 @@ import queryString from 'query-string';
 // };
 
 export const getTrips = (sortBy) => {
-  return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`, {
+  // return fetch(`${API}/trips?sortBy=${sortBy}&order=desc&limit=6`
+  return fetch(`${API}/trips?sortBy=${sortBy}&order=desc`, {
     method: 'GET',
   })
     .then((response) => {
@@ -24,7 +25,8 @@ export const getTrips = (sortBy) => {
 };
 
 export const getEvents = (sortBy) => {
-  return fetch(`${API}/events?sortBy=${sortBy}&order=desc&limit=6`, {
+  // `${API}/events?sortBy=${sortBy}&order=desc&limit=6`
+  return fetch(`${API}/events?sortBy=${sortBy}&order=desc`, {
     method: 'GET',
   })
     .then((response) => {
@@ -35,7 +37,7 @@ export const getEvents = (sortBy) => {
 
 export const getFilteredTrips = (skip, limit, filters = {}) => {
   const data = {
-    limit,
+    // limit,
     skip,
     filters,
   };
