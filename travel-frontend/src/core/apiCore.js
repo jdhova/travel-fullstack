@@ -26,6 +26,7 @@ export const getTrips = (sortBy) => {
 
 export const getEvents = (sortBy) => {
   // `${API}/events?sortBy=${sortBy}&order=desc&limit=6`
+  // `${API}/events?sortBy=${sortBy}&order=desc&limit=6`
   return fetch(`${API}/events?sortBy=${sortBy}&order=desc`, {
     method: 'GET',
   })
