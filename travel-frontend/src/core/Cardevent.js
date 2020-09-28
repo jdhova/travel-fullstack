@@ -25,8 +25,11 @@
 
 import React from 'react';
 import ShowImage from './ShowImage';
+import { getFilteredTrips } from './apiCore';
 
 const Cardevent = ({ event }) => {
+  // const onclick = (e) => {};
+
   return (
     <div className='col-4 mb-8'>
       <div className='main-card'>
@@ -34,6 +37,15 @@ const Cardevent = ({ event }) => {
         <div className='main-body'>
           <ShowImage item={event} url='event' />
           <p>{event.description}</p>
+          {/* <button>Search Trips</button> */}
+          <button
+            type='submit'
+            onClick={function () {
+              getFilteredTrips();
+            }}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
