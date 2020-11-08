@@ -75,15 +75,15 @@ const Signin = () => {
     </div>
   );
 
-  // const showError = () => (
-  //   <div
-  //     className='alert alert-danger'
-  //     style={{ display: error ? '' : 'none' }}
-  //   >
-  //     {error} <br></br>
-  //     <Link to='/sigup'>Signup</Link>
-  //   </div>
-  // );
+  const showError = () => (
+    <div
+      className='alert alert-danger'
+      style={{ display: error ? '' : 'none' }}
+    >
+      {error} <br></br>
+      <Link to='/sigup'>Signup</Link>
+    </div>
+  );
 
   const showLoading = () =>
     loading && (
