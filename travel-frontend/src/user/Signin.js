@@ -65,15 +65,16 @@ const Signin = () => {
     </form>
   );
 
-  const showError = () => (
-    <div
-      className='alert alert-danger'
-      style={{ display: error ? '' : 'none' }}
-    >
-      {error} <br></br>
+  const showError = () =>
+    // <div
+    //   className='alert alert-danger'
+    //   style={{ display: error ? '' : 'none' }}
+    // >
+    ({
+      /* {error} <br></br>
       <Link to='/sigup'>Signup</Link>
-    </div>
-  );
+    </div> */
+    });
 
   const showError = () => (
     <div
