@@ -110,7 +110,7 @@ const Signin = () => {
       <div className='signup1'>
         <h2>Sigin </h2>
       </div>
-      {/* {showLoading()} */}
+      {showLoading()}
       {showError()}
       {redirectUser()}
 
