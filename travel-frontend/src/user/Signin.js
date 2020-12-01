@@ -85,21 +85,21 @@ const Signin = () => {
     </div>
   );
 
-  // const showLoading = () =>
-  //   loading && (
-  //     <div className='alert alert-info'>
-  //       <h2>Loading...</h2>
-  //     </div>
-  //   );
+  const showLoading = () =>
+    loading && (
+      <div className='alert alert-info'>
+        <h2>Loading...</h2>
+      </div>
+    );
 
-  // const redirectUser = () => {
-  //   if (redirectToReferrer) {
-  //     if (user && user.role === 1) {
-  //       return <Redirect to='/admin/dashboard' />;
-  //     } else {
-  //       return <Redirect to='/user/dashboard' />;
-  //     }
-  //   }
+  const redirectUser = () => {
+    if (redirectToReferrer) {
+      if (user && user.role === 1) {
+        return <Redirect to='/admin/dashboard' />;
+      } else {
+        return <Redirect to='/user/dashboard' />;
+      }
+    }
     // if (isAuthenticated()) {
     //   return <Redirect to='/' />;
     // }
