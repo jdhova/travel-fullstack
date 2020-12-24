@@ -85,12 +85,12 @@ const Signin = () => {
     </div>
   );
 
-  // const showLoading = () =>
-  //   loading && (
-  //     <div className='alert alert-info'>
-  //       <h2>Loading...</h2>
-  //     </div>
-  //   );
+  const showLoading = () =>
+    loading && (
+      <div className='alert alert-info'>
+        <h2>Loading...</h2>
+      </div>
+    );
 
   const redirectUser = () => {
     if (redirectToReferrer) {
@@ -100,9 +100,9 @@ const Signin = () => {
         return <Redirect to='/user/dashboard' />;
       }
     }
-    // if (isAuthenticated()) {
-    //   return <Redirect to='/' />;
-    // }
+    if (isAuthenticated()) {
+      return <Redirect to='/' />;
+    }
   };
 
   return (
