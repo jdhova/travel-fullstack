@@ -23,6 +23,8 @@
 
 // export default eventCard;
 
+// export default eventCard;
+
 import React from 'react';
 import ShowImage from './ShowImage';
 import { getFilteredTrips } from './apiCore';
