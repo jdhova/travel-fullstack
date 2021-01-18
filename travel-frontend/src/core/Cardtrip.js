@@ -1,6 +1,6 @@
 import React from 'react';
 import ShowImage from './ShowImage';
-import ShowImage from './ShowImage';
+//import ShowImage from './ShowImage';
 
 const Cardtrip = ({ trip }) => {
   return (
