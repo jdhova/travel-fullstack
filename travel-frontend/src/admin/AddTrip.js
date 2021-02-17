@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
-// import { createTrip, getEvents } from './apiAdmin';
+ import { createTrip, getEvents } from './apiAdmin';
 
 const AddTrip = () => {
   const [values, setValues] = useState({
