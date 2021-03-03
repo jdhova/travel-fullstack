@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getEvents, getTrips, getFilteredTrips } from './apiCore';
-import Cardevent from './Cardevent';
+ // import Cardevent from './Cardevent';
 
 const Events = () => {
   const [myFilters, setMyFilters] = useState({
